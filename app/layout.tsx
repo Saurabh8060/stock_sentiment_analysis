@@ -25,7 +25,7 @@ const spaceGrotesk = Space_Grotesk({
 const siteName = "NewsSentinex";
 const siteDescription =
   "AI-powered stock sentiment dashboard for tracking financial news sentiment, ticker trends, and market mood in one place.";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newssentinex.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newssentix.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
