@@ -14,6 +14,18 @@ type TrendLineChartProps = {
     data: TrendPoint[];
 };
 
+type TrendTooltipItem = {
+    color?: string;
+    name?: string;
+    value?: number | string;
+};
+
+type TrendTooltipProps = {
+    active?: boolean;
+    payload?: TrendTooltipItem[];
+    label?: string;
+};
+
 export default function TrendLineChart({data}: TrendLineChartProps) {
     return (
         <div className="relative flex h-[360px] flex-col overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 shadow-2xl backdrop-blur">
@@ -81,22 +93,26 @@ export default function TrendLineChart({data}: TrendLineChartProps) {
     );
 }
 
-function CustomTooltip({active, payload, label}: any) {
+function CustomTooltip({active, payload, label}: TrendTooltipProps) {
     if (!active || !payload) return null;
     
     return (
         <div className="rounded-xl border border-white bg-white/95 p-4 shadow-xl backdrop-blur">
             <p className="mb-2 font-semibold text-slate-900">{label}</p>
             <div className="space-y-1.5">
-                {payload.map((item: any, idx: number) => (
+                {payload.map((item, idx: number) => {
+                    const tooltipItem = item as TrendTooltipItem;
+
+                    return (
                     <div key={idx} className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2">
-                            <div className="h-2.5 w-2.5 rounded-full" style={{backgroundColor: item.color}} />
-                            <span className="text-sm font-medium capitalize text-slate-700">{item.name}</span>
+                            <div className="h-2.5 w-2.5 rounded-full" style={{backgroundColor: tooltipItem.color}} />
+                            <span className="text-sm font-medium capitalize text-slate-700">{tooltipItem.name}</span>
                         </div>
-                        <span className="text-sm font-bold text-slate-900">{item.value}</span>
+                        <span className="text-sm font-bold text-slate-900">{tooltipItem.value}</span>
                     </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );

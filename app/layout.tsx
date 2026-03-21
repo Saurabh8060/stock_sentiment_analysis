@@ -22,9 +22,45 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
+const siteName = "NewsSentinex";
+const siteDescription =
+  "AI-powered stock sentiment dashboard for tracking financial news sentiment, ticker trends, and market mood in one place.";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newssentinex.com";
+
 export const metadata: Metadata = {
-  title: "newssentinex",
-  description: "newssentinex",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} | Stock Sentiment Dashboard`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  keywords: [
+    "stock sentiment analysis",
+    "stock news sentiment",
+    "market sentiment dashboard",
+    "financial news analysis",
+    "AI stock dashboard",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName,
+    title: `${siteName} | Stock Sentiment Dashboard`,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Stock Sentiment Dashboard`,
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
