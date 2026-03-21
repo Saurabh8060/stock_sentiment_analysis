@@ -90,7 +90,12 @@ export default function Dashboard() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </div>
-                    <p className="text-red-600 text-center font-semibold">{error ?? "Dashboard unavailable"}</p>
+                    <p className="text-slate-900 text-center font-semibold">
+                        NewsSentinex is an AI-powered stock sentiment dashboard.
+                    </p>
+                    <p className="mt-2 text-center text-sm text-slate-500">
+                        Track financial news sentiment, monitor ticker trends, and review market mood from one place.
+                    </p>
                 </div>
             </div>
         );
