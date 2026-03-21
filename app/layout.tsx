@@ -22,7 +22,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-const siteName = "NewsSentinex";
+const siteName = "NewsSentix";
 const siteDescription =
   "AI-powered stock sentiment dashboard for tracking financial news sentiment, ticker trends, and market mood in one place.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newssentix.vercel.app";
